@@ -1,0 +1,116 @@
+<br>
+<div class="col-lg-12">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="main-card mb-3 card" style="height: 400px;">
+                <div class="card-body">
+                    <h5 class="card-title">Ductos</h5>
+                    <table class="mb-0 table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th class="text-center" style="width: 100px;">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody class="catalogos">
+                            <tr *ngFor="let ductos of ducto">
+                                <th>{{ ductos.nombre}}</th>
+                                <td class="text-center" style="width: 100px;">
+                                    <a (click)="cambiarEstatus(ductos.id)">
+                                        <i *ngIf="ductos.estatus == 0" class="fas fa-lock" style="color: red"></i>
+                                        <i *ngIf="ductos.estatus == 1" class="fas fa-lock-open"
+                                            style="color: green"></i>&nbsp;
+                                    </a>
+                                    <a (click)="modificarDucto(ductos.id)">
+                                        <i class="far fa-edit" style="color: green"></i></a>
+                                </td>
+    
+                            </tr>
+    
+                        </tbody>
+                    </table>
+                    <br>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="main-card mb-3 card" style="height: 400px;">
+                <div class="card-body">
+                    <h5 class="card-title">Motivo de suspension</h5>
+                    <table class="mb-0 table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody class="catalogos">
+                            <tr *ngFor="let motivos of motivo">
+                                <th>{{motivos.nombre}}</th>
+                            </tr>
+    
+                        </tbody>
+                    </table>
+                    <br>
+                    <div class="text-left" style="font-size: 2em; color: green;">
+                        <a (click)="agregarMotivoSusp()">
+                            <i class="fa fa-plus-square" aria-hidden="true" title="Copy to use plus-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="main-card mb-3 card" style="height: 400px;">
+                <div class="card-body">
+                    <h5 class="card-title">Tipos de suspension</h5>
+                    <table class="mb-0 table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody class="catalogos">
+                            <tr *ngFor="let logisticas of logistica">
+                                <th>{{logisticas.nombre}}</th>
+                            </tr>
+    
+                        </tbody>
+                    </table>
+                    <br>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="main-card mb-3 card" style="height: 400px;">
+                <div class="card-body">
+                    <h5 class="card-title">Personal del centro de control</h5>
+                    <table class="mb-0 table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody class="catalogos">
+                            <tr *ngFor="let personal of personalcc">
+                                <th>{{personal.nombre}}</th>
+                            </tr>
+    
+                        </tbody>
+                    </table>
+                    <br>
+                    <div class="text-left" style="font-size: 2em; color: green">
+                        <a (click)="agregarPersonalCC()">
+                            <i class="fa fa-plus-square" aria-hidden="true" title="Copy to use plus-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+

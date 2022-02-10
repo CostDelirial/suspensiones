@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FrontSuspension</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="./assets/css/main.css" rel="stylesheet">
+
+  <style type="text/css">/* Chart.js */
+    @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}
+    tbody.catalogos {
+      display:block;
+     height: 250px;
+      overflow-y:auto;
+  }
+  thead, tbody tr {
+      display:table;
+      width:100%;
+      table-layout:fixed;
+  }
+  thead {
+      width: calc( 100% - 1em )
+  } 
+
+  .verde{
+    width: 0;
+    height: 0;
+    color: #fff;
+    border-right: 25px solid green;
+    border-top: 25px solid green;
+    border-left: 25px solid green;
+    border-bottom: 25px solid green;
+
+}
+.rojo{
+    width: 0px;
+    height: 0px;
+    color:#fff;
+    border-right: 25px solid red;
+    border-top: 25px solid red;
+    border-left: 25px solid red;
+    border-bottom: 25px solid red;
+   
+}
+
+.verde-amarillo{
+    width: 0;
+    height: 0;
+    border-right: 25px solid green;
+    border-top: 25px solid green;
+    border-left: 25px solid #eeff00;
+    border-bottom: 25px solid #eeff00;
+    
+}
+.rojo-amarillo{
+    width: 0;
+    height: 0;
+    border-right: 25px solid red;
+    border-top: 25px solid red;
+    border-left: 25px solid rgb(140, 201, 140);
+    border-bottom: 25px solid rgb(140, 201, 140);
+}
+   </style>
+    <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/47/5/intl/es_ALL/common.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/47/5/intl/es_ALL/util.js"></script>
+    <link rel="stylesheet" href="assets/css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="assets/css/helper.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    
+
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="mat-typography">
+  <app-root></app-root>
+  <script type="text/javascript" src="assets/scripts/main.js"></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+</body>
+</html>

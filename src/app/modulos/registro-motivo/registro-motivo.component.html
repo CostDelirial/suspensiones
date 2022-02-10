@@ -1,0 +1,35 @@
+<div class="modal fade bd-example-modal-lg show" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-modal="true" style="display: block;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Agregar Motivo Suspension</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal($event)">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form id="modificaDuctoForm"
+                autocomplete="off"
+                [formGroup]="motivoForm"
+                (ngSubmit)="nuevoMotivo()">
+            <div class="modal-body">
+                
+                    <div class="position-relative form-group">
+                        <label for="exampleEmail" class="">Motivo de suspension</label>
+                        <input formControlName="nombre" name="nombre" id="nombre" type="text"
+                            class="form-control">
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="exampleSelect" class="">Tipo de suspension</label>
+                        <select formControlName="logisticaid" name="logisticaid" id="exampleSelect" class="form-control">
+                            <option *ngFor="let logisticas of logistica" [ngValue]="logisticas.id">{{logisticas.nombre}}</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal($event)">CERRAR</button>
+                <button type="submit" class="btn btn-primary" >GUARDAR</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>

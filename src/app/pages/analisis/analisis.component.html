@@ -1,0 +1,204 @@
+
+<br>
+<div class="col-lg-12">
+    <div class="main-card mb-3 card" >
+        <div class="card-body">
+            <h1 class=" text-center"><b>TIEMPO DE OPERACIÓN Y MOTIVOS DE SUSPENSIONES</b></h1>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <h3 style="color:#621132"><b>Particular</b></h3>
+            </div>
+            <form 
+                autocomplete="off"
+                [formGroup]="zietePartForm"
+                (ngSubmit)="zieteParticular()">
+                
+                <div class="row">
+                    <div class="col-6">
+                        <div class="position-relative form-group">
+                            <label for="exampleSelect" class="">*Ducto</label>
+                            <select formControlName="ductoId" name="ductoId" id="ductoId" class="form-control">
+                                <option *ngFor="let ductos of ducto" [ngValue]="ductos.id">{{ductos.nombre}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="position-relative form-group">
+                            <label for="exampleEmail" class="">*Fecha de inicio operativo </label>
+                            <input  formControlName="fechaInicio" name="fechaInicio" id="fechaInicio"  type="date"
+                                class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="position-relative form-group">
+                            <label for="exampleEmail" class="">*Fecha fin operativa</label>
+                            <input  formControlName="fechaFinal" name="fechaFinal" id="fechaFinal"  type="date"
+                                class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                         <div class="position-relative">
+                            <br><p></p>
+                            <button type="submit" class="btn btn-outline-success btn-block">Buscar <i class="fa fa-search"></i></button>
+    
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+           
+            <div class="row">
+                <div class="col-6">
+                    <table class=" table table-bordered table-striped" >
+                        <thead class="thead-dark text-center">
+                            <th>LOGISTICO</th>
+                        </thead>
+                        <thead class="thead-dark">
+                            <tr>
+                                <th >Motivo</th>
+                                <th>Duración (Horas )</th>
+                                <th>Ocurrencia</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngIf="razon.length === 0 "><br>
+                                <div class="alert alert-warning" role="alert">
+                                    Selecciona el ducto y la fecha de inicio y final para la búsqueda
+                                  </div>
+                            </tr>
+                        <tr  *ngFor="let razones of razon" class="text-center">
+                            
+                            <td *ngIf="razones.bls === 1" >{{ razones.observaciones }}</td>
+                            <td *ngIf="razones.bls === 1">{{ razones.duracion.toFixed(2)}}</td>
+                            <td *ngIf="razones.bls === 1">{{razones.km}}</td>  
+                        </tr>
+
+                        </tbody>
+                    </table>               
+                 </div>
+                <div class="col-6">
+                    <table class=" table table-bordered table-striped" >
+                        <thead class="thead-dark text-center">
+                            <th>NO LOGISTICO</th>
+                        </thead>
+                        <thead class="thead-dark">
+                        <tr>
+                            <th >Motivo</th>
+                            <th>Duración ( Horas )</th>
+                            <th>Ocurrencia</th>
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngIf="razon.length === 0 "><br>
+                                <div class="alert alert-warning" role="alert">
+                                    Selecciona el ducto y la fecha de inicio y final para la búsqueda
+                                  </div>
+                            </tr>
+                            
+                            <tr *ngFor="let razones of razon" class="text-center">
+                                <td *ngIf="razones.bls === 2" >{{ razones.observaciones }}</td>
+                                <td *ngIf="razones.bls === 2">{{ razones.duracion.toFixed(2)}}</td>
+                                <td *ngIf="razones.bls === 2">{{razones.km}}</td>
+                            </tr>
+                        </tbody>
+                    </table> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-12">
+    <div class="main-card mb-3 card" >
+        <div class="card-body">
+            <div class="row">
+                <h3 style="color:#621132"><b>General</b></h3>
+            </div>
+            <form 
+            autocomplete="off"
+            [formGroup]="zieteGeneralForm"
+            (ngSubmit)="zieteGeneral()">
+            <div class="row">
+                <div class="col-6">
+                    <p>T.O. = Tiempo operando </p>
+                    <p>F.O. = Fuera de operación</p>
+                    
+                </div>
+                    <div class="col-2">
+                        <div class="position-relative form-group">
+                            <label for="exampleEmail" class="">*Fecha de inicio operativo</label>
+                            <input  formControlName="fechaInicioG" name="fechaInicioG" id="fechaInicio"  type="date"
+                                class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="position-relative form-group">
+                            <label for="exampleEmail" class="">*Fecha fin operativa</label>
+                            <input formControlName="fechaFinalG" name="fechaFinalG" id="fechaFinal"  type="date"
+                                class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="position-relative form-group">
+                            <br><p> </p>
+                            <button type="submit" class="btn btn-outline-success btn-block">Buscar <i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+            </div>
+            </form>
+            <table class=" table table-bordered table-striped" >
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Ducto</th>
+                        <th>T.O. ( Hrs. )</th>
+                        <th>T.O. ( Dias ) </th>
+                        <th>F.O. ( Hrs. )</th>
+                        <th>F.O. ( Dias )</th>
+                        <th>%T.O.</th>
+                        <th>%F.O.</th>
+                        <th>% Si logisticas</th>
+                        <th>% No logisticas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <div *ngIf="tog.length == 0" class="alert alert-warning text-center" role="alert">
+                        Selecciona la fecha de inicio y fecha final para la búsqueda
+                      </div>
+                <tr *ngFor="let togs of tog">
+                   
+                    <td>{{ togs.ducto}}</td>
+                    <td>{{ togs.tiempoOperando.toFixed(2) }}</td>
+                        <td>{{togs.diasOperando.toFixed(2)}}</td>
+                        <td>{{togs.tiempoSuspendido.toFixed(2)}}</td>
+                        <td>{{togs.diasSuspendido.toFixed(2)}}</td>
+                        <td>{{togs.porTO.toFixed(2)}}%</td>
+                        <td>{{togs.porFO.toFixed(2)}}%</td>
+                        <td>{{togs.porSiLog.toFixed(2)}}%</td>
+                        <td>{{ togs.porNoLog.toFixed(2)}}%</td>
+                    
+                </tr>
+               
+                </tbody>
+            </table> 
+
+        </div>
+        
+    </div>
+</div>
+<div class="col-6  align-self-center">
+    <div style="display: block; ">
+        <canvas baseChart class="chart"
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [type]="barChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+</div>
+
+

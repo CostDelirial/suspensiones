@@ -1,0 +1,118 @@
+<br>
+<div class="col-12" >
+    <div class="mb-3 card" style="height: 750px;">
+        <div class="card-header">
+            <ul class="nav nav-justified">
+                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-0" class="nav-link show"><h4>
+                    Registros de
+                    suspensiones ( General )
+                </h4></a></li>
+                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" class="nav-link show"><h4>
+                    Registros de
+                    suspensiones ( Particular )
+                </h4> </a></li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content">
+                <div class="tab-pane show" id="tab-eg7-0" role="tabpanel">
+
+                    
+                    <table class="table table-bordered table-striped" >
+                        <thead>
+                            <tr>
+                                <th style="width: 500px">Ducto</th>
+                                <th style="width: 150px">Estatus</th>
+                                <th style="width: 150px;">Fecha</th>
+                                <th>Motivo de suspensión</th>
+                                <th>Fecha de registro</th>
+                                <th style="width: 100px">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="catalogos" style="height: 600px;">
+                            <tr *ngFor="let suspension of suspensiones">
+                                <td style="width: 500px">{{ suspension.ducto.nombre}}</td>
+                                <td style="width: 150px">{{ suspension.estatus}}</td>
+                                <td style="width: 150px;">{{ suspension.fechaHora.replace('T',' ')}}</td>
+                                <td>{{ suspension.motivoSuspension.nombre}}</td>
+                                <td>{{suspension.seregistro.replace('T',' ')}}</td>
+                                <td style="width: 100px">
+                                    <i class="far fa-eye" style="color: rgb(255, 145, 0)"></i>&nbsp;
+                                    <a (click)="modificarSuspension(suspension.id)">
+                                        <i class="far fa-edit" style="color: green"></i>&nbsp;
+                                    </a>
+                                    <i class="far fa-trash-alt" style="color: red"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane show" id="tab-eg7-1" role="tabpanel">
+                    <form
+                    autocomplete="off"
+            [formGroup]="suspensionPartForm"
+            (ngSubmit)="cargarSuspensionParticular()">
+                        
+                        <div class="col-6">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="exampleSelect" class="">*Ducto</label>
+                                    <select formControlName="ductoId" name="ductoId" id="ductoId" class="form-control">
+                                        <option *ngFor="let ductos of ducto" [ngValue]="ductos.id">{{ductos.nombre}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="col-6">
+                                <div class="position-relative form-group">
+                                    <label for="exampleEmail" class="">*Fecha de inicio operativo</label>
+                                    <input  formControlName="fechaInicio" name="fechaInicio" id="fechaInicio"  type="date"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="position-relative form-group">
+                                    <label for="exampleEmail" class="">*Fecha fin operativa</label>
+                                    <input formControlName="fechaFinal" name="fechaFinal" id="fechaFinal"  type="date"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="position-relative form-group">
+                                    
+                                    <button type="submit" class="btn btn-outline-success btn-block">Buscar <i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width: 500px">Ducto</th>
+                                <th style="width: 150px">Estatus</th>
+                                <th style="width: 150px;">Fecha</th>
+                                <th>Motivo de suspensión</th>
+                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody class="catalogos" style="height: 300px;">
+                            <tr *ngFor="let suspensionesParticulares of suspensionParticular">
+                                <td style="width: 500px">{{ suspensionesParticulares.ducto.nombre}}</td>
+                                <td style="width: 150px">{{ suspensionesParticulares.estatus}}</td>
+                                <td style="width: 150px;">{{ suspensionesParticulares.fechaHora.replace('T',' ')}}</td>
+                                <td>{{ suspensionesParticulares.motivoSuspension.nombre}}</td>
+                                
+                               
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

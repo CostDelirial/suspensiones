@@ -1,0 +1,63 @@
+<br>
+
+<div class="col-lg-12">
+    <div class=" main-card mb-3 card">
+        <div class="card-body">
+         
+               <div class="row">
+                   <div class="col-4">
+                    <h5>S.S.E. - G.E.S.S.M. - S.S.M.</h5>
+                   </div>
+                <div class="col-6 text-left">
+                    <h3><b>TABLERO DE CONTROL DE DUCTOS</b></h3>
+                </div>
+                     <div class="col-2 text-center" style="background-color:#d4c19c ;" >
+                         <h3 style="color:#691c32">Hora: {{ hora | date:'hh:mm:ss' }}</h3>
+                         <h5 style="color:#691c32"><p>Fecha: {{hora|date:'dd-MM-yyyy'}}</p></h5>
+                     </div>
+               </div>
+            
+        </div>
+    </div>
+</div>
+
+
+    <div class="col-lg-12">
+        <div class="main-card mb-3 card" >
+            <div class="card-body">
+                
+                <table class=" table table-bordered table-striped" >
+                    <thead class="thead-dark">
+                    <tr>
+                        <th >Ducto</th>
+                        <th>Operación</th>
+                        <th>Motivo de Suspensión</th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let tableros of tablero">
+                        <td>{{ tableros.ducto.nombre}}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div *ngIf="tableros.motivoSuspension.logisticaid == 10" class=" verde" style="width: 25%; border-radius: 100%;"></div>
+                                    <div *ngIf="tableros.motivoSuspension.logisticaid == 1" class=" rojo-amarillo" style="width: 25%; border-radius: 100%;"></div>
+                                    <div *ngIf="tableros.motivoSuspension.logisticaid == 2" class=" rojo" style="width: 25%; border-radius: 100%;"></div>
+                                </div>
+                                <div class="col-8">
+                                    {{ tableros.estatus }}<br>{{tableros.fechaHora.replace('T',' ')}}
+                                
+
+                                </div>
+                            </div>
+                    </td>
+                        <td>{{ tableros.motivoSuspension.nombre}}</td>
+                        
+                    </tr>
+                   
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
